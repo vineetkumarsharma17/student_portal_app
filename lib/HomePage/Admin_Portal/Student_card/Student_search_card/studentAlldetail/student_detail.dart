@@ -91,9 +91,9 @@ class _StudentAllinformationState extends State<StudentAllinformation> {
         body:TabBarView(
           children: [
             Profile(),
-            FeeHistory(),
+            FeeHistory(fee_history: fees_history),
             Profile(),
-            FeeHistory()
+            FeeHistory(fee_history: fees_history),
           ],
         ),
       ),

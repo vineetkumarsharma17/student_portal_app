@@ -51,6 +51,39 @@ class Profile extends StatelessWidget {
             children: [
               Container(
                 width: width*.35,
+                child: Text("Father",style: heading,),
+              ),
+              Container(
+                width: width*.03,
+                child: Text(":",style: heading,),
+              ),Container(
+                width: width*.5,
+                child: Text("SANTOSH YADAV",style: data_ts,),
+              ),
+            ],
+          ),
+          SizedBox(height: 10,),
+          Row(
+            children: [
+              Container(
+                width: width*.35,
+                child: Text("Mother",style: heading,),
+              ),
+              Container(
+                width: width*.03,
+                child: Text(":",style: heading,),
+              ),Container(
+                width: width*.5,
+                child: Text("Malti Devi",style: data_ts,),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 10,),
+          Row(
+            children: [
+              Container(
+                width: width*.35,
                 child: Text("Class",style: heading,),
               ),
               Container(
