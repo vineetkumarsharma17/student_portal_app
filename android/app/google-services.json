@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1071163401854",
+    "project_id": "sniic-c9373",
+    "storage_bucket": "sniic-c9373.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071163401854:android:3ab6de444c9809d8425a2f",
+        "android_client_info": {
+          "package_name": "com.example.student_portal_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071163401854-tlaeub348p0a7o1g9rs7rsgcs8eupf25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5aWl_gK2xyt6YaHRsQGI7e3mjWCZnhUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071163401854-tlaeub348p0a7o1g9rs7rsgcs8eupf25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
