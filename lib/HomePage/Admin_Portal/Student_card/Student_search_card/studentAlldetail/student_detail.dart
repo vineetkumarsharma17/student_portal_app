@@ -5,6 +5,9 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Student_search_card/studentAlldetail/tab/fee_history.dart';
+import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Student_search_card/studentAlldetail/tab/fee_reicipt.dart';
+import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Student_search_card/studentAlldetail/tab/other_fee.dart';
+import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Student_search_card/studentAlldetail/tab/siblings.dart';
 import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Student_search_card/studentAlldetail/tab/student_profile.dart';
 import 'package:student_portal_app/component/alertdilog.dart';
 class StudentAllinformation extends StatefulWidget {
@@ -74,7 +77,7 @@ class _StudentAllinformationState extends State<StudentAllinformation> {
     //double width=MediaQuery.of(context).size.width;
     double radius=50;
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         appBar: AppBar(
           title: Text("Student Detail"),
@@ -82,6 +85,7 @@ class _StudentAllinformationState extends State<StudentAllinformation> {
             isScrollable: true,
             tabs: [
               Tab( text: "Profile"),
+              Tab( text: "Siblings"),
               Tab( text: "Fee History"),
               Tab( text: "Fee reciept"),
               Tab( text: "Other fee"),
@@ -91,9 +95,10 @@ class _StudentAllinformationState extends State<StudentAllinformation> {
         body:TabBarView(
           children: [
             Profile(),
+            Siblings(sibling_list: sibling_list),
             FeeHistory(fee_history: fees_history),
-            Profile(),
-            FeeHistory(fee_history: fees_history),
+            FeeReciept(recipt_list:recipt_list),
+            OtherFee(other_item_fees: other_item_fees),
           ],
         ),
       ),
