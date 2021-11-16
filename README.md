@@ -1,7 +1,7 @@
 # student_portal_app
 
 A new Flutter project.
-<img src="flutter_01.png" height=100/>
+<img src="flutter_01.png" weight=100/>
 ## Getting Started
 
 This project is a starting point for a Flutter application.
