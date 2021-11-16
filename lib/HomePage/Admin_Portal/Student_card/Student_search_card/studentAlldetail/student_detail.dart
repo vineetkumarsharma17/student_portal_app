@@ -79,6 +79,7 @@ class _StudentAllinformationState extends State<StudentAllinformation> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
+
         appBar: AppBar(
           title: Text("Student Detail"),
           bottom: const TabBar(
