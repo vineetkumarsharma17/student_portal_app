@@ -104,7 +104,7 @@ TextEditingController searchController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFBCEBEB),
+      backgroundColor: const Color(0xFFBCEBEB),
       appBar:  AppBar(
           backgroundColor: Color(0xFF097272),
           title: isSearching?const Text("Search Student Details")
@@ -297,7 +297,7 @@ TextEditingController searchController=TextEditingController();
                                               width: MediaQuery.of(context).size.width*.5,
                                               child: Text(
                                                 studentData[index]["name"],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -318,7 +318,7 @@ TextEditingController searchController=TextEditingController();
                       );
                     },
                   ),
-                ):CircularProgressIndicator(),
+                ):const CircularProgressIndicator(),
               ],
             ),
           ),

@@ -11,6 +11,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:student_portal_app/Splashpage/SplashPage.dart';
+import 'package:student_portal_app/component/alertdilog.dart';
+
+import 'HomePage/Admin_Portal/Student_card/Student_Admission/Personal_info/personal_info.dart';
+import 'HomePage/Admin_Portal/Student_card/Student_search_card/studentAlldetail/student_detail.dart';
 const AndroidNotificationChannel channel = AndroidNotificationChannel(
     'high_importance_channel', // id
     'High Importance Notifications', // title
@@ -21,7 +25,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 FlutterLocalNotificationsPlugin();
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
-  print('A bg message just showed up :  ${message.messageId}');
+  // print('A bg message just showed up :  ${message.messageId}');
 }
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,12 +69,14 @@ class _GetTokenPageState extends State<GetTokenPage> {
                 importance: Importance.high,
                 color: Colors.amber,
                 playSound: true,
+                sound: RawResourceAndroidNotificationSound('iphone_sms'),
                 icon: '@mipmap/ic_launcher')));
   }
   @override
   void initState() {
     super.initState();
     firebaseCloudMessagingListeners();
+    //this call when app is open or foreground
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
@@ -87,28 +93,33 @@ class _GetTokenPageState extends State<GetTokenPage> {
                 color: Colors.blue,
                 playSound: true,
                 icon: '@mipmap/ic_launcher',
+                  sound: RawResourceAndroidNotificationSound('iphone_sms.mp3'),
               ),
             ));
       }
     });
+    // called when app is closed and user tab on notification
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       print('A new onMessageOpenedApp event was published!');
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
       if (notification != null && android != null) {
-        showDialog(
-            context: context,
-            builder: (_) {
-              return AlertDialog(
-                title: Text(notification.title!),
-                content: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Text(notification.body!)],
-                  ),
-                ),
-              );
-            });
+        if(notification.title=="Attendance")
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>RegisterPersonalInfo()));
+          // showMyDialog("Attendance", "Attendance marked sccefully", context);
+        // showDialog(
+        //     context: context,
+        //     builder: (_) {
+        //       return AlertDialog(
+        //         title: Text(notification.title!),
+        //         content: SingleChildScrollView(
+        //           child: Column(
+        //             crossAxisAlignment: CrossAxisAlignment.start,
+        //             children: [Text(notification.body!)],
+        //           ),
+        //         ),
+        //       );
+        //     });
       }
     });
   }
