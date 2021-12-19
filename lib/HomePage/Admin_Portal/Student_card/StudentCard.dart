@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Promoted_Student/PromoteStudent.dart';
 import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Student_Admission/Personal_info/personal_info.dart';
 import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/Student_search_card/student_search_card.dart';
+import 'package:student_portal_app/HomePage/Admin_Portal/Student_card/today_present_classwise/today_present.dart';
 
 class StudentSlabCard extends StatefulWidget {
   StudentSlabCard({Key? key}) : super(key: key);
@@ -49,7 +50,7 @@ class _StudentSlabCardState extends State<StudentSlabCard> {
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.27,
                         child: Column(
-                          children: [
+                          children: const [
                             Icon(Icons.school_rounded),
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -74,7 +75,7 @@ class _StudentSlabCardState extends State<StudentSlabCard> {
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.27,
                         child: Column(
-                          children: [
+                          children: const [
                             Icon(Icons.school_rounded),
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -154,11 +155,14 @@ class _StudentSlabCardState extends State<StudentSlabCard> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TodaysPresentClasswise()));
+                    },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: Column(
-                        children: [
+                        children: const [
                           Icon(Icons.school_rounded),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10),
